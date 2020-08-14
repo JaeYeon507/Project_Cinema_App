@@ -127,13 +127,15 @@ public class MainActivity extends AppCompatActivity {
                 || super.onSupportNavigateUp();
     }
 
-    public void goToWritingActivity() {
+    public void goToWritingActivity(String title) {
         Intent intent = new Intent(getApplicationContext(), WritingActivity.class);
+        intent.putExtra("title",title);
         startActivityForResult(intent, 101);
     }
 
-    public void goToViewAllActivity() {
+    public void goToViewAllActivity(String title) {
         Intent intent = new Intent(getApplicationContext(), ViewAllActivity.class);
+        intent.putExtra("title",title);
         intent.putParcelableArrayListExtra("data", items);
         startActivityForResult(intent, 109);
 

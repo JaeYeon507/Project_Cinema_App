@@ -91,7 +91,7 @@ public class FragmentMovieDetail extends Fragment {
         tv_write.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                activity.goToWritingActivity();
+                activity.goToWritingActivity(args.getDetailMovieData().getTitle());
             }
         });
 
@@ -100,7 +100,7 @@ public class FragmentMovieDetail extends Fragment {
         viewAllButton = rootView.findViewById(R.id.button3);
         viewAllButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) { activity.goToViewAllActivity();
+            public void onClick(View view) { activity.goToViewAllActivity(args.getDetailMovieData().getTitle());
             }
         });
 

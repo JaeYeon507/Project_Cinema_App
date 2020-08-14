@@ -22,6 +22,7 @@ public class ViewAllActivity extends AppCompatActivity {
     ListView listView;
     ArrayList<Item> items;
     ItemAdapter adapter;
+    TextView textView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,12 +30,14 @@ public class ViewAllActivity extends AppCompatActivity {
         setContentView(R.layout.activity_view_all);
 
         listView = findViewById(R.id.listView);
+        textView = findViewById(R.id.textView4);
 
         TextView tv_write = findViewById(R.id.tv_write);
         tv_write.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(),WritingActivity.class);
+                intent.putExtra("title",textView.getText());
                 startActivityForResult(intent,109);
             }
         });
@@ -53,6 +56,7 @@ public class ViewAllActivity extends AppCompatActivity {
     private  void processIntent(Intent intent){
         if(intent != null){
             items = intent.getParcelableArrayListExtra("data");
+            textView.setText(intent.getStringExtra("title"));
         }
     }
 

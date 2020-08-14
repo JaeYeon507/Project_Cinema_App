@@ -26,6 +26,11 @@ public class WritingActivity extends AppCompatActivity {
         et = findViewById(R.id.et);
         tv = findViewById(R.id.textView4);
 
+        Intent intent = getIntent();
+        if(intent != null){
+            tv.setText(intent.getStringExtra("title"));
+        }
+
         Button button = findViewById(R.id.button);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
